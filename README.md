@@ -12,6 +12,7 @@
   
 # 클라이언트
 - Non-Blocking 소켓을 사용하여 단일스레드에서 구동이 가능하도록 구현
+- NetworkService 클래스의 Service 메소드(하트비트 및 송수신 처리) 주기적으로 호출 필요
 - TestClient 프로젝트를 사용하여 테스트 구동 
 
 # 내부 구조
