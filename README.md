@@ -2,7 +2,7 @@
 - C# .Net Core를 사용한 비동기 소켓 서버
 - C# .Net Framework를 사용한 Non-Blocking 소켓 클라이언트
 - APM(비동기 프로그래밍 모델), EAP(이벤트 기반 비동기 패턴), TAP(작업 기반의 비동기 패턴)의 비동기 프로그래밍 패턴을 사용한 TCP 네트워크 통신 서버 구현
-- Unity에서 사용가능하도록 클라이언트 라이브러리의 경우 .Net Framework 사용
+- Unity에서 사용가능하도록 클라이언트의 경우 .Net Framework 사용
   
 # 서버
 - APM(비동기 프로그래밍 모델) : IAsyncResult 인터페이스를 사용한 모델로 Begin~, End~ 메소드를 사용하여 구현
