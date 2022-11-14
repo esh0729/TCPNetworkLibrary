@@ -8,11 +8,11 @@
 - APM(비동기 프로그래밍 모델) : IAsyncResult 인터페이스를 사용한 모델로 Begin~, End~ 메소드를 사용하여 구현
 - EAP(이벤트 기반 비동기 패턴) : 비동기 소켓작업을 처리하는 SocketAsyncEventArgs 객체를 이용한 모델로 SocketAsyncEventArgs를 매개변수로 사용하는 ~Async 메소드 사용하여 구현
 - TAP(작업 기반의 비동기 패턴) : Task 형식을 기반으로 작성한 모델로 Task를 반환하는 ~Async 메서드, FromAsync 메서드와 await async 키워드를 사용하여 구현
-- TestServer 프로젝트를 사용하여 각 모델 테스트 구동
+- TestServer 프로젝트를 사용하여 각 모델 테스트 구동 가능
   
 # 클라이언트
 - Non-Blocking 소켓을 사용하여 단일스레드에서 구동이 가능하도록 구현
-- TestClient 프로젝트를 사용하여 테스트 구동
+- TestClient 프로젝트를 사용하여 테스트 구동 
 
 # 내부 구조
 ![S01](https://user-images.githubusercontent.com/100393621/201567638-a7cc2bf5-0404-4366-a82f-4903eaf94eb5.PNG)
