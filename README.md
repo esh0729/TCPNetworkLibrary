@@ -15,9 +15,9 @@
 - TestClient 프로젝트를 사용하여 테스트 구동
 
 # 내부 구조
-![01](https://user-images.githubusercontent.com/100393621/201566149-fc0f5458-2be1-434c-93dd-1bee8ad8ee95.PNG)
-![02](https://user-images.githubusercontent.com/100393621/201566157-eb5d6db6-e0dd-4d45-8bf8-a32a07aad2f8.PNG)
-![03](https://user-images.githubusercontent.com/100393621/201566162-4e1f1283-bf25-4ffb-be9e-2b4caac53453.PNG)
-![04](https://user-images.githubusercontent.com/100393621/201566167-7bc5bf75-6dd7-4305-993e-e0f925df1a9b.PNG)
-![05](https://user-images.githubusercontent.com/100393621/201566170-1bcc177f-8d9f-4d37-aaab-cee11104befa.PNG)
-![06](https://user-images.githubusercontent.com/100393621/201566175-b6286c90-7e41-4ad0-b3f0-005d9e31a889.PNG)
+![S01](https://user-images.githubusercontent.com/100393621/201567638-a7cc2bf5-0404-4366-a82f-4903eaf94eb5.PNG)
+![S02](https://user-images.githubusercontent.com/100393621/201567641-3841e935-97b9-4b80-af64-d50a5c5cc141.PNG)
+![S03](https://user-images.githubusercontent.com/100393621/201567661-6cf436e3-608a-45da-b449-383bfddcef37.PNG)
+![S04](https://user-images.githubusercontent.com/100393621/201567668-a0ac80b4-9b65-41bb-92da-5fd17c7e8b8d.PNG)
+![S05](https://user-images.githubusercontent.com/100393621/201567672-31546865-0ecf-420c-8c45-3e872eb96328.PNG)
+![S06](https://user-images.githubusercontent.com/100393621/201567675-6bd63cff-33b8-4083-844b-d10c18c67570.PNG)
