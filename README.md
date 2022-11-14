@@ -15,7 +15,7 @@
 - 관련 프로젝트 : ClientSocket, TestClient
 - Non-Blocking 소켓을 사용하여 단일스레드에서 구동이 가능하도록 구현
 - NetworkService 클래스의 Service 메소드(하트비트 및 송수신 처리) 주기적으로 호출 필요
-- TestClient 프로젝트를 사용하여 테스트 구동 
+- TestClient 프로젝트를 사용하여 테스트 구동 가능
 
 # 내부 구조
 ![S01](https://user-images.githubusercontent.com/100393621/201567638-a7cc2bf5-0404-4366-a82f-4903eaf94eb5.PNG)
