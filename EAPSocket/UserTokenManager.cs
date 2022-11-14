@@ -9,7 +9,7 @@ namespace EAPSocket
 	/// <summary>
 	/// 클라이언트와 연결된 사용자토큰을 관리
 	/// </summary>
-	public class UserTokenManager
+	internal class UserTokenManager
 	{
 		//////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Member variables

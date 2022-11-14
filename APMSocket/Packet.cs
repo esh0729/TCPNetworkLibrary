@@ -24,7 +24,7 @@ namespace APMSocket
 		/// 데이터 수신시 사용하는 생성자
 		/// </summary>
 		/// <param name="buffer">수신된 데이터가 저장된 버퍼</param>
-		public Packet(byte[] buffer)
+		internal Packet(byte[] buffer)
 		{
 			m_buffer = buffer;
 			m_nPosition = Defines.HEADSIZE;
@@ -34,7 +34,7 @@ namespace APMSocket
 		/// 데이터 송신시 사용하는 생성자
 		/// </summary>
 		/// <param name="nBufferSize">내부에서 사용할 버퍼의 크기</param>
-		public Packet(int nBufferSize)
+		internal Packet(int nBufferSize)
 		{
 			m_buffer = new byte[nBufferSize];
 			m_nPosition = Defines.HEADSIZE;
@@ -223,7 +223,7 @@ namespace APMSocket
 		/// </summary>
 		/// <param name="buffer">수신된 데이터가 저장된 버퍼</param>
 		/// <returns>생성된 Packet 객체 반환</returns>
-		public static Packet Create(byte[] buffer)
+		internal static Packet Create(byte[] buffer)
 		{
 			return new Packet(buffer);
 		}

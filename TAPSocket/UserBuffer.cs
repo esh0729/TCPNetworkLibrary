@@ -9,7 +9,7 @@ namespace TAPSocket
 	/// <summary>
 	/// 송수신에 사용되는 버퍼를 관리
 	/// </summary>
-	public class UserBuffer
+	internal class UserBuffer
 	{
 		//////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Member variables

@@ -9,7 +9,7 @@ namespace ClientSocket
 	/// <summary>
 	/// 패킷 생성을 처리
 	/// </summary>
-	public static class PacketMaker
+	internal static class PacketMaker
 	{
 		//////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Constants

@@ -10,7 +10,7 @@ namespace EAPSocket
 	/// <summary>
 	/// 송수신에 사용되는 모든버퍼를 관리
 	/// </summary>
-	public class BufferManager
+	internal class BufferManager
 	{
 		//////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Member variables

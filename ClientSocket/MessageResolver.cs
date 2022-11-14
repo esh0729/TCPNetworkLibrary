@@ -9,7 +9,7 @@ namespace ClientSocket
 	/// <summary>
 	/// 수신된 데이터를 내부 버퍼로 복사 하여 패킷 단위로 변환
 	/// </summary>
-	public class MessageResolver
+	internal class MessageResolver
 	{
 		//////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Member variables

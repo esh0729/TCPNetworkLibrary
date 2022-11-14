@@ -9,7 +9,7 @@ namespace EAPSocket
 	/// <summary>
 	/// 수신된 데이터를 분석하여 처리가능한 패킷으로 전달
 	/// </summary>
-	public class MessageResolver
+	internal class MessageResolver
 	{
 		//////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Member variables

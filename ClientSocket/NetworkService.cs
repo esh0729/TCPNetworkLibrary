@@ -23,6 +23,19 @@ namespace ClientSocket
 		private long m_lnHeartBeatLifetimeTicks;
 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////
+		// Delegate / Event
+
+		// 서버 접속 완료시 호출되는 대리자
+		public delegate void ConnectHandler(UserToken token);
+
+		private event ConnectHandler m_onConnected;
+		public event ConnectHandler onConnected
+		{
+			add { m_onConnected += value; }
+			remove { m_onConnected -= value; }
+		}
+
+		//////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Constructors
 
 		/// <summary>
@@ -41,15 +54,8 @@ namespace ClientSocket
 
 			m_lnHeartBeatLifetimeTicks = 0;
 
-			onConnected = null;
+			m_onConnected = null;
 		}
-
-		//////////////////////////////////////////////////////////////////////////////////////////////////////
-		// Delegate / Event
-
-		public delegate void ConnectHandler(UserToken token);
-
-		public event ConnectHandler onConnected;
 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Member functions
@@ -102,8 +108,8 @@ namespace ClientSocket
 		/// </summary>
 		private void OnConnect(Socket socket)
 		{
-			if (onConnected != null)
-				onConnected(m_token);
+			if (m_onConnected != null)
+				m_onConnected(m_token);
 
 			m_token.Start(socket);
 		}

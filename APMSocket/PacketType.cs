@@ -9,7 +9,7 @@ namespace APMSocket
 	/// <summary>
 	/// 패킷의 타입
 	/// </summary>
-	public enum PacketType : byte
+	internal enum PacketType : byte
 	{
 		// 소켓 연결상태 확인 요청
 		SYS_HeartBeatREQ = 1,

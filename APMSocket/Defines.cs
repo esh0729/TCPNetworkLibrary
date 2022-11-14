@@ -9,7 +9,7 @@ namespace APMSocket
 	/// <summary>
 	/// 소켓 통신에서 사용하는 매크로 정의
 	/// </summary>
-	public static class Defines
+	internal static class Defines
 	{
 		//////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Constants

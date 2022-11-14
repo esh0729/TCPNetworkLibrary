@@ -11,7 +11,7 @@ namespace EAPSocket
 	/// <summary>
 	/// 소켓 통신에서 클라이언트와의 연결을 처리
 	/// </summary>
-	public class Listener
+	internal class Listener
 	{
 		//////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Member variables

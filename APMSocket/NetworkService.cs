@@ -148,7 +148,7 @@ namespace APMSocket
 		/// 사용자토큰 반납 함수
 		/// </summary>
 		/// <param name="token">반납할 사용자토큰</param>
-		public void ReturnUserToken(UserToken token)
+		internal void ReturnUserToken(UserToken token)
 		{
 			m_userTokenManager.RemoveUserToken(token);
 

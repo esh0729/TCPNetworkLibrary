@@ -49,7 +49,7 @@ namespace ClientSocket
 		/// <param name="service">네트워크 통신을 관리하는 객체</param>
 		/// <param name="nBufferSize">내부 버퍼의 크기</param>
 		/// <param name="receiveBuffer">수신 버퍼</param>
-        public UserToken(NetworkService service, int nBufferSize, UserBuffer receiveBuffer)
+        internal UserToken(NetworkService service, int nBufferSize, UserBuffer receiveBuffer)
         {
             if (service == null)
                 throw new ArgumentNullException("service");
@@ -85,7 +85,7 @@ namespace ClientSocket
 		/// 사용자토큰을 수신이 가능한 상태로 전환하는 함수
 		/// </summary>
 		/// <param name="socket">클라이언트 소켓</param>
-        public void Start(Socket socket)
+        internal void Start(Socket socket)
         {
             if (socket == null)
                 throw new ArgumentNullException("socket");
@@ -140,7 +140,7 @@ namespace ClientSocket
 		/// </summary>
 		/// <param name="lnValidTimeTicks">유효한 시간틱</param>
 		/// <returns>유효한 연결상태의 경우 true, 유효시간이 경과 됬을경우 false 반환</returns>
-        public bool CheckHeartBeat(long lnValidTimeTicks)
+        internal bool CheckHeartBeat(long lnValidTimeTicks)
         {
             lock (m_syncObject)
             {
@@ -237,7 +237,7 @@ namespace ClientSocket
         /// <summary>
 		/// 연결상태 확인 요청 전송 함수
 		/// </summary>
-        public void SendHeartBeatREQ()
+        private void SendHeartBeatREQ()
         {
             Packet packet = PacketMaker.CreatePacket();
             packet.Push((byte)PacketType.SYS_HeartBeatREQ);
@@ -395,7 +395,7 @@ namespace ClientSocket
         /// <summary>
         /// 최종 종료 함수
         /// </summary>
-        public void Close()
+        internal void Close()
         {
             lock (m_syncObject)
             {

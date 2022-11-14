@@ -9,7 +9,7 @@ namespace EAPSocket
 	/// <summary>
 	/// 대기중인 사용자토큰을 관리
 	/// </summary>
-	public class UserTokenPool
+	internal class UserTokenPool
 	{
 		//////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Member variables

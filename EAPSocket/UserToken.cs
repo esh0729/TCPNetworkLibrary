@@ -51,7 +51,7 @@ namespace EAPSocket
 		/// <param name="nBufferSize">내부 버퍼의 크기</param>
 		/// <param name="receiveEventArgs">수신 비동기 소켓 작업</param>
 		/// <param name="sendEventArgs">송신 비동기 소켓 작업</param>
-		public UserToken(NetworkService service, int nBufferSize, SocketAsyncEventArgs receiveEventArgs, SocketAsyncEventArgs sendEventArgs)
+		internal UserToken(NetworkService service, int nBufferSize, SocketAsyncEventArgs receiveEventArgs, SocketAsyncEventArgs sendEventArgs)
 		{
 			if (service == null)
 				throw new ArgumentNullException("service");

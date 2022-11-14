@@ -49,7 +49,7 @@ namespace TAPSocket
 		/// <param name="service">네트워크 통신을 관리하는 객체</param>
 		/// <param name="nBufferSize">내부 버퍼의 크기</param>
 		/// <param name="receiveBuffer">수신 버퍼</param>
-		public UserToken(NetworkService service, int nBufferSize, UserBuffer receiveBuffer)
+		internal UserToken(NetworkService service, int nBufferSize, UserBuffer receiveBuffer)
 		{
 			if (service == null)
 				throw new ArgumentNullException("service");
@@ -123,7 +123,7 @@ namespace TAPSocket
 		/// </summary>
 		/// <param name="lnValidTimeTicks">유효한 시간틱</param>
 		/// <returns>유효한 연결상태의 경우 true, 유효시간이 경과 됬을경우 false 반환</returns>
-		public bool CheckHeartBeat(long lnValidTimeTicks)
+		internal bool CheckHeartBeat(long lnValidTimeTicks)
 		{
 			lock (m_syncObject)
 			{
@@ -401,7 +401,7 @@ namespace TAPSocket
 		/// 정상적으로 수신데이터 크기가 0이 수신되서 정상 종료되어 호출되거나
 		/// 소켓 에러 또는 연결상태 체크에서 생명주기가 경과됬을 경우 강제 종료가 필요하여 호출됨
 		/// </summary>
-		public void Close()
+		internal void Close()
 		{
 			lock (m_syncObject)
 			{
