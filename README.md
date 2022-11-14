@@ -5,12 +5,14 @@
 - Unity에서 사용가능하도록 클라이언트의 경우 .Net Framework 사용
   
 # 서버
+- APMSocket, EAPSocket, TAPSocket, TestServer 프로젝트
 - APM(비동기 프로그래밍 모델) : IAsyncResult 인터페이스를 사용한 모델로 Begin~, End~ 메소드를 사용하여 구현
 - EAP(이벤트 기반 비동기 패턴) : 비동기 소켓작업을 처리하는 SocketAsyncEventArgs 객체를 이용한 모델로 SocketAsyncEventArgs를 매개변수로 사용하는 ~Async 메소드 사용하여 구현
 - TAP(작업 기반의 비동기 패턴) : Task 형식을 기반으로 작성한 모델로 Task를 반환하는 ~Async 메서드, FromAsync 메서드와 await async 키워드를 사용하여 구현
 - TestServer 프로젝트를 사용하여 각 모델 테스트 구동 가능
   
 # 클라이언트
+- ClientSocket, TestClient 
 - Non-Blocking 소켓을 사용하여 단일스레드에서 구동이 가능하도록 구현
 - NetworkService 클래스의 Service 메소드(하트비트 및 송수신 처리) 주기적으로 호출 필요
 - TestClient 프로젝트를 사용하여 테스트 구동 
