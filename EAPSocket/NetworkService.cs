@@ -42,6 +42,12 @@ namespace EAPSocket
 		//////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Constructors
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="nMaxConnections">최대 접속자 수</param>
+		/// <param name="nBufferSize">입출력버퍼의 크기</param>
+		/// <param name="nPreAllocBufferCount">사전할당버퍼개수</param>
 		public NetworkService(int nMaxConnections, int nBufferSize, int nPreAllocBufferCount)
 		{
 			if (nMaxConnections <= 0)
@@ -59,7 +65,7 @@ namespace EAPSocket
 
 			m_listener = null;
 
-			// 최대 접속자수 * 버퍼 크기 * 사전할당버퍼 개수 크기의 모든 송수신 버퍼 배열 생성
+			// 최대 접속자 수 * 버퍼 크기 * 사전할당버퍼 개수 크기의 모든 송수신 버퍼 배열 생성
 			m_bufferManager = new BufferManager(m_nMaxConnections * m_nBufferSize * m_nPreAllocBufferCount, m_nBufferSize);
 
 			// 사용자토큰풀 최대 접속자 수를 가진 풀의 크기로 생성
