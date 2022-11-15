@@ -420,7 +420,7 @@ namespace APMSocket
 				// 토큰에 등록된 피어는 종료처리
 				try
 				{
-					m_peer!.OnRemoved();
+					m_peer!.OnDisconnect();
 				}
 				catch
 				{
@@ -452,7 +452,7 @@ namespace APMSocket
 				{
 					try
 					{
-						m_peer.OnRemoved();
+						m_peer.OnDisconnect();
 					}
 					catch
 					{

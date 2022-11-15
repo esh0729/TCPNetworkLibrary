@@ -25,12 +25,12 @@ namespace ClientSocket
 		/// <param name="buffer">수신된 데이터</param>
 		void OnReceive(Packet packet);
 		/// <summary>
-		/// 연결 종료시 호출되는 함수
-		/// </summary>
-		void OnRemoved();
-		/// <summary>
 		/// 연결 해제 함수
 		/// </summary>
 		void Disconnect();
+		/// <summary>
+		/// 연결 해제 시 호출되는 함수
+		/// </summary>
+		void OnDisconnect();
 	}
 }

@@ -50,7 +50,7 @@ namespace TestServer
 		/// <summary>
 		/// 데이터 송신 함수
 		/// </summary>
-		/// <param name="packet">송신할 패킷 데이터</param>
+		/// <param name="packet">송신 패킷 데이터</param>
 		public void Send(Packet packet)
 		{
 			m_token.Send(packet);
@@ -59,7 +59,7 @@ namespace TestServer
 		/// <summary>
 		/// 데이터 수신시 호출되는 함수
 		/// </summary>
-		/// <param name="packet"></param>
+		/// <param name="packet">수신 패킷 데이터</param>
 		public void OnReceive(Packet packet)
 		{
 			MessageType type = (MessageType)packet.PopInt16();
@@ -89,9 +89,9 @@ namespace TestServer
 		}
 
 		/// <summary>
-		/// 연결 종류시 호출되는 함수
+		/// 연결 해제 시 호출되는 함수
 		/// </summary>
-		public void OnRemoved()
+		public void OnDisconnect()
 		{
 			TAPSocketNetwork.RemoveClientPeer(m_id);
 		}

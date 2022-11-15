@@ -25,12 +25,12 @@ namespace EAPSocket
 		/// <param name="packet">수신된 패킷 데이터</param>
 		void OnReceive(Packet packet);
 		/// <summary>
-		/// 연결 종료시 호출되는 함수
-		/// </summary>
-		void OnRemoved();
-		/// <summary>
 		/// 연결 해제 함수
 		/// </summary>
 		void Disconnect();
+		/// <summary>
+		/// 연결 해제 시 호출되는 함수
+		/// </summary>
+		void OnDisconnect();
 	}
 }
