@@ -455,7 +455,7 @@ namespace EAPSocket
 				// 토큰에 등록된 피어는 종료처리
 				try
 				{
-					m_peer!.OnRemoved();
+					m_peer!.OnDisconnect();
 				}
 				catch
 				{
@@ -487,7 +487,7 @@ namespace EAPSocket
 				{
 					try
 					{
-						m_peer.OnRemoved();
+						m_peer.OnDisconnect();
 					}
 					catch
 					{

@@ -94,7 +94,17 @@ namespace APMSocket
 		/// <returns>현재 위치의 int 타입 데이터 반환</returns>
 		public int PopInt32()
 		{
-			return (int)(m_buffer[m_nPosition++] | (m_buffer[m_nPosition++] << 8) | (m_buffer[m_nPosition++] << 16) | (m_buffer[m_nPosition++] << 24));
+			return m_buffer[m_nPosition++] | (m_buffer[m_nPosition++] << 8) | (m_buffer[m_nPosition++] << 16) | (m_buffer[m_nPosition++] << 24);
+		}
+
+		/// <summary>
+		/// 버퍼에서 long 형태의 데이터를 꺼내오는 함수
+		/// </summary>
+		/// <returns>현재 위치의 long 타입 데이터 반환</returns>
+		public long PopInt64()
+		{
+			return (long)(m_buffer[m_nPosition++] | (m_buffer[m_nPosition++] << 8) | (m_buffer[m_nPosition++] << 16) | (m_buffer[m_nPosition++] << 24) |
+					(m_buffer[m_nPosition++] << 32) | (m_buffer[m_nPosition++] << 40) | (m_buffer[m_nPosition++] << 48) | (m_buffer[m_nPosition++] << 56));
 		}
 
 		/// <summary>
@@ -134,16 +144,16 @@ namespace APMSocket
 		{
 			int nPosition = 0;
 
-			m_buffer[nPosition++] = (byte)(0x000000ff & m_nPosition);
-			m_buffer[nPosition++] = (byte)(0x000000ff & (m_nPosition >> 8));
-			m_buffer[nPosition++] = (byte)(0x000000ff & (m_nPosition >> 16));
-			m_buffer[nPosition] = (byte)(0x000000ff & (m_nPosition >> 24));
+			m_buffer[nPosition++] = (byte)m_nPosition;
+			m_buffer[nPosition++] = (byte)(m_nPosition >> 8);
+			m_buffer[nPosition++] = (byte)(m_nPosition >> 16);
+			m_buffer[nPosition] = (byte)(m_nPosition >> 24);
 		}
 
 		/// <summary>
 		/// byte 형태의 데이터를 버퍼의 현재 위치에 저장하는 함수
 		/// </summary>
-		/// <param name="value">byte 데이터</param>
+		/// <param name="value">byte 타입 데이터</param>
 		public void Push(byte value)
 		{
 			m_buffer[m_nPosition++] = value;
@@ -152,29 +162,45 @@ namespace APMSocket
 		/// <summary>
 		/// short 형태의 데이터를 버퍼의 현재 위치에 저장하는 함수
 		/// </summary>
-		/// <param name="value">short 데이터</param>
+		/// <param name="value">short 타입 데이터</param>
 		public void Push(short value)
 		{
-			m_buffer[m_nPosition++] = (byte)(0x00ff & value);
-			m_buffer[m_nPosition++] = (byte)(0x00ff & (value >> 8));
+			m_buffer[m_nPosition++] = (byte)value;
+			m_buffer[m_nPosition++] = (byte)(value >> 8);
 		}
 
 		/// <summary>
 		/// int 형태의 데이터를 버퍼의 현재 위치에 저장하는 함수
 		/// </summary>
-		/// <param name="value">int 데이터</param>
+		/// <param name="value">int 타입 데이터</param>
 		public void Push(int value)
 		{
-			m_buffer[m_nPosition++] = (byte)(0x000000ff & value);
-			m_buffer[m_nPosition++] = (byte)(0x000000ff & (value >> 8));
-			m_buffer[m_nPosition++] = (byte)(0x000000ff & (value >> 16));
-			m_buffer[m_nPosition++] = (byte)(0x000000ff & (value >> 24));
+			m_buffer[m_nPosition++] = (byte)value;
+			m_buffer[m_nPosition++] = (byte)(value >> 8);
+			m_buffer[m_nPosition++] = (byte)(value >> 16);
+			m_buffer[m_nPosition++] = (byte)(value >> 24);
+		}
+
+		/// <summary>
+		/// long 형태의 데이터를 버퍼의 현재 위치에 저장하는 함수
+		/// </summary>
+		/// <param name="value">long 타입 데이터</param>
+		public void Push(long value)
+		{
+			m_buffer[m_nPosition++] = (byte)value;
+			m_buffer[m_nPosition++] = (byte)(value >> 8);
+			m_buffer[m_nPosition++] = (byte)(value >> 16);
+			m_buffer[m_nPosition++] = (byte)(value >> 24);
+			m_buffer[m_nPosition++] = (byte)(value >> 32);
+			m_buffer[m_nPosition++] = (byte)(value >> 40);
+			m_buffer[m_nPosition++] = (byte)(value >> 48);
+			m_buffer[m_nPosition++] = (byte)(value >> 56);
 		}
 
 		/// <summary>
 		/// float 형태의 데이터를 버퍼의 현재 위치에 저장하는 함수
 		/// </summary>
-		/// <param name="value">float 데이터</param>
+		/// <param name="value">float 타입 데이터</param>
 		public void Push(float value)
 		{
 			// float 데이터 byte[]로 변환
@@ -188,7 +214,7 @@ namespace APMSocket
 		/// <summary>
 		/// string 형태의 데이터를 버퍼의 현재 위치에 저장하는 함수
 		/// </summary>
-		/// <param name="value">string 데이터</param>
+		/// <param name="value">string 타입 데이터</param>
 		public void Push(string value)
 		{
 			// string 데이터를 UTF8 인코딩으로 byte[] 변환

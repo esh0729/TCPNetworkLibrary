@@ -373,7 +373,7 @@ namespace ClientSocket
 
                 try
                 {
-                    m_peer.OnRemoved();
+                    m_peer.OnDisconnect();
                 }
                 catch
                 {
@@ -409,7 +409,7 @@ namespace ClientSocket
                 {
                     try
                     {
-                        m_peer.OnRemoved();
+                        m_peer.OnDisconnect();
                     }
                     catch
                     {
