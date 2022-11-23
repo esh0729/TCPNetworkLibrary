@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ClientSocket
@@ -24,6 +25,9 @@ namespace ClientSocket
 		private int m_nPositionToRead;
 		// 현재 남은 데이터 길이
 		private int m_nRemainBytes;
+
+		// 종료 신호
+		private ManualResetEvent m_endSignal;
 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Delegate / Event
@@ -48,6 +52,8 @@ namespace ClientSocket
 			m_nCurrentPosition = 0;
 			m_nPositionToRead = 0;
 			m_nRemainBytes = 0;
+
+			m_endSignal = new ManualResetEvent(true);
 		}
 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -96,6 +102,9 @@ namespace ClientSocket
 		/// <param name="callback">패킷 완성후 호출될 콜백함수</param>
 		public void OnReceive(byte[] buffer, int nOffset, int nCount, CompletedMessageCallback callback)
 		{
+			// 수신 데이터가 들어올 경우 종료 신호를 차단 설정
+			m_endSignal.Reset();
+
 			// 남은 데이터 길이 저장
 			m_nRemainBytes = nCount;
 
@@ -117,7 +126,7 @@ namespace ClientSocket
 					bCompleted = ReadUtil(buffer, ref nSrcPosition);
 
 					if (!bCompleted)
-						return;
+						break;
 
 					// 복사할 바디 크기 계산
 					m_nMessageSize = GetBodySize();
@@ -137,6 +146,9 @@ namespace ClientSocket
 					ClearBuffer();
 				}
 			}
+
+			// 수신 데이터 처리가 끝났을 경우 종료 신호 설정
+			m_endSignal.Set();
 		}
 
 		/// <summary>
@@ -151,12 +163,24 @@ namespace ClientSocket
 		/// <summary>
 		/// 메세지 버퍼 초기화 함수
 		/// </summary>
-		public void ClearBuffer()
+		private void ClearBuffer()
 		{
 			Array.Clear(m_messageBuffer, 0, m_messageBuffer.Length);
 
 			m_nCurrentPosition = 0;
 			m_nMessageSize = 0;
+		}
+
+		/// <summary>
+		/// 종료 함수
+		/// </summary>
+		public void Stop()
+		{
+			// 수신 데이터 처리가 끝날때까지 대기
+			m_endSignal.WaitOne();
+
+			// 버퍼 초기화
+			ClearBuffer();
 		}
 	}
 }

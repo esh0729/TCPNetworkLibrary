@@ -430,7 +430,7 @@ namespace TAPSocket
 				m_socket!.Close();
 				m_socket = null;
 
-				m_messageResolver.ClearBuffer();
+				m_messageResolver.Stop();
 				m_sendPackets.Clear();
 				m_sendSegments.Clear();
 			}

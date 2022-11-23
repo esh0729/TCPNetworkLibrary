@@ -502,10 +502,9 @@ namespace EAPSocket
 				m_socket!.Close();
 				m_socket = null;
 
+				m_messageResolver.Stop();
 				m_sendPackets.Clear();
 				m_sendSegments.Clear();
-
-				m_messageResolver.ClearBuffer();
 			}
 
 			// 네트워크 연결이 종료된 토큰 반납
