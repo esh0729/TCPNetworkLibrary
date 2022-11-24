@@ -117,6 +117,15 @@ namespace ClientSocket
 		}
 
 		/// <summary>
+		/// 버퍼에서 byte 타입의 데이터를 꺼내 0이 아닐 경우 true, 0일 경우 false를 반환하는 함수
+		/// </summary>
+		/// <returns>bool 타입의 데이터 반환</returns>
+		public bool PopBoolean()
+		{
+			return PopByte() != 0 ? true : false;
+		}
+
+		/// <summary>
 		/// 버퍼에서 float 형태의 데이터를 꺼내오는 함수
 		/// </summary>
 		/// <returns>현재 위치의 float 타입 데이터 반환</returns>
@@ -134,12 +143,15 @@ namespace ClientSocket
 		/// <returns>현재 위치의 string 타입 데이터 반환</returns>
 		public string PopString()
 		{
+			if (!PopBoolean())
+				return null;
+
 			int nLength = PopInt16();
 
-			string value = Encoding.UTF8.GetString(m_buffer, m_nPosition, nLength);
+			string sValue = Encoding.UTF8.GetString(m_buffer, m_nPosition, nLength);
 			m_nPosition += nLength;
 
-			return value;
+			return sValue;
 		}
 
 		//
@@ -207,6 +219,15 @@ namespace ClientSocket
 		}
 
 		/// <summary>
+		/// bool 형태의 데이터를 저장하는 함수
+		/// </summary>
+		/// <param name="value">bool 타입 데이터</param>
+		public void Push(bool value)
+		{
+			Push(value ? 1 : 0);
+		}
+
+		/// <summary>
 		/// float 형태의 데이터를 버퍼의 현재 위치에 저장하는 함수
 		/// </summary>
 		/// <param name="value">float 타입 데이터</param>
@@ -226,6 +247,14 @@ namespace ClientSocket
 		/// <param name="value">string 타입 데이터</param>
 		public void Push(string value)
 		{
+			if (value == null)
+			{
+				Push(false);
+				return;
+			}
+
+			Push(true);
+
 			// string 데이터를 UTF8 인코딩으로 byte[] 변환
 			byte[] temp = Encoding.UTF8.GetBytes(value);
 			// byte[] 의 길이 저장
