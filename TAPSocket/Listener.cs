@@ -132,7 +132,6 @@ namespace TAPSocket
 		private void ProcessAccept(object? state)
 		{
 			Socket socket = (Socket)state!;
-			Console.WriteLine("Connected {0}", socket.RemoteEndPoint);
 
 			lock (m_syncObject!)
 			{

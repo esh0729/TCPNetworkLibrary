@@ -76,7 +76,7 @@ namespace TestClient
 		/// <summary>
 		/// 연결 종료시 호출되는 ㅎ마수
 		/// </summary>
-		public void OnRemoved()
+		public void OnDisconnect()
 		{
 			Console.WriteLine("OnRemoved");
 		}

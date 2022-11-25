@@ -215,7 +215,7 @@ namespace EAPSocket
 		/// <param name="value">bool 타입 데이터</param>
 		public void Push(bool value)
 		{
-			Push(value ? 1 : 0);
+			Push((byte)(value ? 1 : 0));
 		}
 
 		/// <summary>

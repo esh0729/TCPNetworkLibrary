@@ -67,7 +67,7 @@ namespace TestServer
 			{
 				case MessageType.MSG_REQ:
 					{
-						string text = packet.PopString();
+						string? text = packet.PopString();
 						Console.WriteLine(text);
 
 						Packet response = Packet.Create();
