@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
 using System.Net.Sockets;
 
 namespace TAPSocket
@@ -76,6 +77,19 @@ namespace TAPSocket
 			m_lnLastHeartBeatTicks = 0;
 
 			m_state = State.Idle;
+		}
+
+		//////////////////////////////////////////////////////////////////////////////////////////////////////
+		// Properties
+
+		public string ipAddress
+		{
+			get { return ((IPEndPoint)m_socket!.RemoteEndPoint!).Address.ToString(); }
+		}
+
+		public int port
+		{
+			get { return ((IPEndPoint)m_socket!.RemoteEndPoint!).Port; }
 		}
 
 		//////////////////////////////////////////////////////////////////////////////////////////////////////
