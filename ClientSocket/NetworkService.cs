@@ -108,10 +108,12 @@ namespace ClientSocket
 		/// </summary>
 		private void OnConnect(Socket socket)
 		{
+			m_token.socket = socket;
+
 			if (m_onConnected != null)
 				m_onConnected(m_token);
 
-			m_token.Start(socket);
+			m_token.Start();
 		}
 
 		/// <summary>

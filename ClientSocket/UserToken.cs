@@ -82,6 +82,12 @@ namespace ClientSocket
         //////////////////////////////////////////////////////////////////////////////////////////////////////
         // Properties
 
+        internal Socket? socket
+        {
+            get { return m_socket; }
+            set { m_socket = value; }
+        }
+
         public string ipAddress
         {
             get { return ((IPEndPoint)m_socket.RemoteEndPoint).Address.ToString(); }
@@ -98,13 +104,10 @@ namespace ClientSocket
         /// <summary>
 		/// 사용자토큰을 수신이 가능한 상태로 전환하는 함수
 		/// </summary>
-		/// <param name="socket">클라이언트 소켓</param>
-        internal void Start(Socket socket)
+        internal void Start()
         {
             if (socket == null)
                 throw new ArgumentNullException("socket");
-
-            m_socket = socket;
 
             m_lnLastHeartBeatTicks = DateTime.Now.Ticks;
 

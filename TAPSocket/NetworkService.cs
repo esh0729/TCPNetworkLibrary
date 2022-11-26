@@ -135,13 +135,14 @@ namespace TAPSocket
 		private void OnConnectionClient(Socket socket)
 		{
 			UserToken token = m_userTokenPool.Pop();
+			token.socket = socket;
 
 			if (m_onCreatedSession != null)
 				m_onCreatedSession(token);
 
 			m_userTokenManager.AddUserToken(token);
 
-			token.Start(socket);
+			token.Start();
 		}
 
 		/// <summary>
