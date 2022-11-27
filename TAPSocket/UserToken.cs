@@ -397,20 +397,20 @@ namespace TAPSocket
 					return;
 
 				m_state = State.Closing;
+			}
 
-				// 토큰에 등록된 피어는 종료처리
-				try
-				{
-					m_peer!.OnDisconnect();
-				}
-				catch
-				{
+			// 토큰에 등록된 피어는 종료처리
+			try
+			{
+				m_peer!.OnDisconnect();
+			}
+			catch
+			{
 
-				}
-				finally
-				{
-					m_peer = null;
-				}
+			}
+			finally
+			{
+				m_peer = null;
 			}
 		}
 
@@ -428,29 +428,29 @@ namespace TAPSocket
 
 				m_state = State.Closed;
 
-				// Disconnect 함수가 이미 호출 되었을 경우 피어가 null
-				if (m_peer != null)
-				{
-					try
-					{
-						m_peer.OnDisconnect();
-					}
-					catch
-					{
-
-					}
-					finally
-					{
-						m_peer = null;
-					}
-				}
-
 				m_socket!.Close();
 				m_socket = null;
 
 				m_messageResolver.Stop();
 				m_sendPackets.Clear();
 				m_sendSegments.Clear();
+			}
+
+			// Disconnect 함수가 이미 호출 되었을 경우 피어가 null
+			if (m_peer != null)
+			{
+				try
+				{
+					m_peer.OnDisconnect();
+				}
+				catch
+				{
+
+				}
+				finally
+				{
+					m_peer = null;
+				}
 			}
 
 			// 네트워크 연결이 종료된 토큰 반납

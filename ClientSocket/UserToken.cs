@@ -82,7 +82,7 @@ namespace ClientSocket
         //////////////////////////////////////////////////////////////////////////////////////////////////////
         // Properties
 
-        internal Socket? socket
+        internal Socket socket
         {
             get { return m_socket; }
             set { m_socket = value; }
@@ -388,24 +388,22 @@ namespace ClientSocket
 
                 m_state = State.Closing;
 
-                try
-                {
-                    m_peer.OnDisconnect();
-                }
-                catch
-                {
-
-                }
-                finally
-                {
-                    m_peer = null;
-                }
-
                 // 전송중인 메세지가 있을 경우 전송 이후 처리
-                if (m_sendSegments.Count > 0)
-                    return;
+                if (m_sendSegments.Count == 0)
+                    m_socket.Shutdown(SocketShutdown.Send);
+            }
 
-                m_socket.Shutdown(SocketShutdown.Send);
+            try
+            {
+                m_peer.OnDisconnect();
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                m_peer = null;
             }
         }
 
@@ -421,29 +419,29 @@ namespace ClientSocket
 
                 m_state = State.Closed;
 
-                // Disconnect 함수가 이미 호출 되었을 경우 피어가 null
-                if (m_peer != null)
-                {
-                    try
-                    {
-                        m_peer.OnDisconnect();
-                    }
-                    catch
-                    {
-
-                    }
-                    finally
-                    {
-                        m_peer = null;
-                    }
-                }
-
                 m_socket.Close();
                 m_socket = null;
 
                 m_messageResolver.Stop();
                 m_sendPackets.Clear();
                 m_sendSegments.Clear();
+            }
+
+            // Disconnect 함수가 이미 호출 되었을 경우 피어가 null
+            if (m_peer != null)
+            {
+                try
+                {
+                    m_peer.OnDisconnect();
+                }
+                catch
+                {
+
+                }
+                finally
+                {
+                    m_peer = null;
+                }
             }
         }
     }
