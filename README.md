@@ -18,9 +18,9 @@
 - TestClient 프로젝트를 사용하여 테스트 구동 가능
 
 # 내부 구조
-![S01](https://user-images.githubusercontent.com/100393621/201567638-a7cc2bf5-0404-4366-a82f-4903eaf94eb5.PNG)
-![S02](https://user-images.githubusercontent.com/100393621/201567641-3841e935-97b9-4b80-af64-d50a5c5cc141.PNG)
-![S03](https://user-images.githubusercontent.com/100393621/201567661-6cf436e3-608a-45da-b449-383bfddcef37.PNG)
-![S04](https://user-images.githubusercontent.com/100393621/201567668-a0ac80b4-9b65-41bb-92da-5fd17c7e8b8d.PNG)
-![S05](https://user-images.githubusercontent.com/100393621/201567672-31546865-0ecf-420c-8c45-3e872eb96328.PNG)
-![S06](https://user-images.githubusercontent.com/100393621/201567675-6bd63cff-33b8-4083-844b-d10c18c67570.PNG)
+![슬라이드1](https://user-images.githubusercontent.com/100393621/204740843-6c4ece6c-5d1e-426b-b4ac-b7e573de7d95.PNG)
+![슬라이드2](https://user-images.githubusercontent.com/100393621/204740855-d2b57851-dfa3-4316-b36e-a0e121c9974d.PNG)
+![슬라이드3](https://user-images.githubusercontent.com/100393621/204740862-d2e391c0-4987-4c6c-9885-98edfba4e47e.PNG)
+![슬라이드4](https://user-images.githubusercontent.com/100393621/204740868-a8672890-6657-411c-bff9-26e494787e9e.PNG)
+![슬라이드5](https://user-images.githubusercontent.com/100393621/204740872-45a2f211-305b-4406-85e5-5934fca0bd74.PNG)
+![슬라이드6](https://user-images.githubusercontent.com/100393621/204740879-084cb811-a747-4e59-b80e-b7a73b80bbb0.PNG)
